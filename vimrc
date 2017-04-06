@@ -25,3 +25,7 @@ set autoindent
 
 " syntax highlighting
 syntax on
+
+" Map keys for switching tabs (previous then next)
+map <F7> :tabp<CR>
+map <F8> :tabn<CR>
