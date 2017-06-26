@@ -1,0 +1,4 @@
+# General aliases
+alias agdu="sudo apt-get update; sudo apt-get dist-upgrade -y; sudo apt autoremove -y;"
+alias pip3chk="pip3 list --outdated"
+alias udpip3="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip3 install -U"
