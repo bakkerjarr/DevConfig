@@ -34,3 +34,7 @@ syntax on
 " Map keys for switching tabs (previous then next)
 map <F7> :tabp<CR>
 map <F8> :tabn<CR>
+
+" Draw a verticle line at column 81 to establish a boundary for lines
+highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
+set colorcolumn=81
