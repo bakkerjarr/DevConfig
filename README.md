@@ -1,2 +1,3 @@
 # DevConfig
-Contains configuration details and settings for text editors and IDEs.
+
+Contains configuration and settings for shells, text editors and IDEs.
