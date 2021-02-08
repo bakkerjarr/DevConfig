@@ -3,37 +3,45 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-" Turn on the ruler for cursor position
-set ruler
-
-" Show line numbers
-set nu
-
-" use arrow keys and other useful things
+""" Core functionality
 set nocompatible
-
-" size of a hard tabstop
-set tabstop=4
-
-" size of an 'indent'
-set shiftwidth=4
-
-" a combination of spaces and tabs are used to simulate tab stops at a width
-" other than the (hard)tabstop
-set softtabstop=4
-
-" always uses spaces instead of tab characters
-set expandtab
-
-" use auto-indentation
-set autoindent
-
-" syntax highlighting
-syntax on
 
 " Map keys for switching tabs (previous then next)
 map <F7> :tabp<CR>
 map <F8> :tabn<CR>
+
+" Disable the directional keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" Set clipboard behaviour
+set clipboard+=unnamedplus
+
+" Vim help settings
+set helpheight=30
+set helplang=en
+
+
+""" Look and feel
+set ruler
+set nu
+syntax on
+set autoindent
+
+" Size of a hard tabstop
+set tabstop=4
+
+" Size of an 'indent'
+set shiftwidth=4
+
+" A combination of spaces and tabs are used to simulate tab stops at a width
+" other than the (hard) tabstop
+set softtabstop=4
+
+" Always uses spaces instead of tab characters
+set expandtab
 
 " Draw a verticle line at column 81 to establish a boundary for lines
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
