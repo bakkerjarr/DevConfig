@@ -51,6 +51,3 @@ set expandtab
 " Draw a verticle line at column 81 to establish a boundary for lines
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 set colorcolumn=81
-
-" Source fzf
-call SourceIfExists("/usr/share/doc/fzf/examples/fzf.vim")
