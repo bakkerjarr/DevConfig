@@ -1,0 +1,21 @@
+#!/bin/sh
+#title          : grouplist
+#description    : list groups, one group per line.
+#                 Disclaimer from JNB: This script was written by an old
+#                 colleague of mine. I've just put this header on top of the
+#                 script file.
+#author         : JP
+#date           : 06/04/2019
+#version        : 1.0.0
+#usage          : grouplist
+#history        : 06/04/2019 - JP
+#===============================================================================
+
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
+export PATH
+
+id $1 | sed 's/.* groups=//' | tr ',' '\12' | sort -n
+
+exit 0
+
