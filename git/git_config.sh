@@ -9,4 +9,5 @@ git config --global user.name "Jarrod N. Bakker"
 git config --global user.email jarrodbakker@hotmail.com
 git config --global core.editor vim
 git config --global push.default simple
+git config --global init.defaultBranch main
 ssh-keyscan github.com >> ~/.ssh/known_hosts
