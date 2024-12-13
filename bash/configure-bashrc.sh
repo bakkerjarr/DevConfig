@@ -33,6 +33,7 @@ HELP_USAGE
 
 write_profile_config() {
     cat <<PROFILE_CONFIG
+
 ### Note: The config below is written with the philosophy of it being appended
 ###       to .bashrc files without performing string replacements.
 # Check if the OS is based on Debian, Ubuntu or their derivatives
@@ -64,6 +65,7 @@ if [ "\$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
         source \$FZF_KEYBINDING_FILE
     fi
 fi
+
 PROFILE_CONFIG
 }
 
