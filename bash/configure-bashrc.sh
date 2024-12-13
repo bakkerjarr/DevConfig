@@ -33,13 +33,23 @@ HELP_USAGE
 
 write_profile_config() {
     cat <<PROFILE_CONFIG
-
+### Note: The config below is written with the philosophy of it being appended
+###       to .bashrc files without performing string replacements.
 # Check if the OS is based on Debian, Ubuntu or their derivatives
 if [ "\$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     # Redefine bash's primary prompt string (PS1) to include git branches
     GIT_PROMPT_FILE="/usr/lib/git-core/git-sh-prompt"
     if [ -f \$GIT_PROMPT_FILE ]; then    
         source \$GIT_PROMPT_FILE
+        # Redetermine if this terminal has color support
+        if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+            # We have color support; assume it's compliant with Ecma-48
+            # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+            # a case would tend to support setf rather than setaf.)
+            color_prompt=yes
+        else
+            color_prompt=
+        fi
         if [ "\$color_prompt" = yes ]; then
             PS1='\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]\$(__git_ps1 " (%s)")\[\033[00m\]\\$ '
         else
