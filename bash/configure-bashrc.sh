@@ -10,7 +10,6 @@
 #history        : 14/12/2024 - jb - Initial version complete.
 #==============================================================================
 
-
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
 export PATH
 
