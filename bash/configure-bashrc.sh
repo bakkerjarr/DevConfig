@@ -35,23 +35,23 @@ write_profile_config() {
     cat <<PROFILE_CONFIG
 
 # Check if the OS is based on Debian, Ubuntu or their derivatives
-if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
+if [ "\$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     # Redefine bash's primary prompt string (PS1) to include git branches
     GIT_PROMPT_FILE="/usr/lib/git-core/git-sh-prompt"
-    if [ -f $GIT_PROMPT_FILE ]; then    
+    if [ -f \$GIT_PROMPT_FILE ]; then    
         source $GIT_PROMPT_FILE
-        if [ "$color_prompt" = yes ]; then
-            PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+        if [ "\$color_prompt" = yes ]; then
+            PS1='\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]\$(__git_ps1 " (%s)")\[\033[00m\]\\$ '
         else
-            PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\$ '
+            PS1='\${debian_chroot:+(\$debian_chroot)}\u@\h:\w\$(__git_ps1 " (%s)")\\$ '
         fi
         unset color_prompt force_color_prompt
     fi
 
     # Configure fzf keybindings
     FZF_KEYBINDING_FILE="/usr/share/doc/fzf/examples/key-bindings.bash"
-    if [ -f $FZF_KEYBINDING_FILE ]; then
-        source $FZF_KEYBINDING_FILE
+    if [ -f \$FZF_KEYBINDING_FILE ]; then
+        source \$FZF_KEYBINDING_FILE
     fi
 fi
 PROFILE_CONFIG
