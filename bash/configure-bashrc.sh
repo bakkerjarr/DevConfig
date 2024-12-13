@@ -39,7 +39,7 @@ if [ "\$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     # Redefine bash's primary prompt string (PS1) to include git branches
     GIT_PROMPT_FILE="/usr/lib/git-core/git-sh-prompt"
     if [ -f \$GIT_PROMPT_FILE ]; then    
-        source $GIT_PROMPT_FILE
+        source \$GIT_PROMPT_FILE
         if [ "\$color_prompt" = yes ]; then
             PS1='\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]\$(__git_ps1 " (%s)")\[\033[00m\]\\$ '
         else
